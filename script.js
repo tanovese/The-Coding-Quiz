@@ -3,7 +3,7 @@ const optionsContainer= document.getElementById("options-container");
 const quizContainer= document.getElementById("quiz-container");
 
 const questionEl= document.getElementById("question-here");
-let choiceButton = document.querySelector("choices");
+const choiceButton = document.querySelector(".choices");
 
 let randomQuestions, currentQuestionIndex
 
@@ -19,6 +19,7 @@ function beginGame() {
 }
 
 function beginNextQuestion() {
+    resetState()
     revealQuestion(randomQuestions[currentQuestionIndex])
 }
 
@@ -34,6 +35,10 @@ function revealQuestion(q) {
         selectButton.addEventListener("click", selectChoice)
         choiceButton.appendChild(selectButton);
     })
+}
+
+function resetState() {
+    
 }
 
 function selectChoice(e) {
