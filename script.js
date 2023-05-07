@@ -1,10 +1,54 @@
+const beginButton = document.getElementById("begin-button");
+const optionsContainer= document.getElementById("options-container");
+const quizContainer= document.getElementById("quiz-container");
+
+const questionEl= document.getElementById("question-here");
+let choiceButton = document.querySelector("choices");
+
+let randomQuestions, currentQuestionIndex
+
+beginButton.addEventListener("click", beginGame);
+
+function beginGame() {
+    quizContainer.setAttribute("style", "display:none");
+    timeLeftClock();
+    randomQuestions= questions.sort(() => Math.random() - .5)
+    currentQuestionIndex= 0;
+    optionsContainer.setAttribute("style", "display:block");
+    beginNextQuestion();
+}
+
+function beginNextQuestion() {
+    revealQuestion(randomQuestions[currentQuestionIndex])
+}
+
+function revealQuestion(q) {
+    questionEl.innerText=q.q
+    q.a.forEach(a => {
+        const selectButton = document.createElement("select-button")
+        selectButton.innerText=a.text
+        selectButton.classList.add("choices")
+        if (a.correct) {
+            selectButton.dataset.correct = a.correct
+        }
+        selectButton.addEventListener("click", selectChoice)
+        choiceButton.appendChild(selectButton);
+    })
+}
+
+function selectChoice(e) {
+
+}
+
+
+
+
+
+
+
 var timeLeft= document.getElementById('time')
 
-const button = document.getElementById("start-button");
-const quiz = document.getElementById("quiz-container");
-
-button.addEventListener("click", timeLeftClock);
-
+// Our function for time remaining //
 function timeLeftClock() {
         var clock= 100;
 
@@ -19,38 +63,65 @@ function timeLeftClock() {
         }
     }, 1000);
 
-    quiz.textContent="Question # 1: TESTING"
-
 }
 
-var quizQuestions= [
+// The Questions to be asked //
+var questions= [
     {
-        question: "What is my favorite fruit?",
-        answers: {
-            a: "Apple",
-            b: "Banana",
-            c: "Orange"
-        },
-        correctAnswer: "a"
+        q: "What is my favorite fruit?",
+        a: [{ text: "Apple", isAnswer: true },
+            { text: "Banana", isAnswer: false},
+            { text: "Orange", isAnswer: false}
+        ]
+
     },
     {
-        question: "What is my favorite color?",
-        answers: {
-            a: "Purple",
-            b: "Turquoise",
-            c: "Pink",
-            d: "ALL of the above"
-        },
-        correctAnswer: "d"
+        q: "What is my favorite color?",
+        a: [{text: "Purple", isAnswer: false},
+            {text: "Turquiose", isAnswer: false},
+            {text: "Pink", isAnswer: false},
+            {text: "ALL of the above", isAnswer: true}
+        ]
+
     },
     {
-        question: "What is my favorite pet?",
-        answers: {
-            a: "Dog",
-            b: "Cat",
-            c: "Rabbit",
-            d: "Dog & Cat"
-        },
-        correctAnswer: "d"
+        q: "What is my favorite pet?",
+        a: [{text: "Dog", isAnswer: false},
+            {text: "Dog & Cat", isAnswer: true},
+            {text: "Cat", isAnswer: false},
+            {text: "Rabbit", isAnswer: false},
+            
+    ]
     },
+    {
+        q: "What is my favorite holiday?",
+        a: [{text: "Halloween", isAnswer: false},
+            {text: "The 4th of July", isAnswer: false},
+            {text: "Christmas", isAnswer: true},
+            {text: "New Year's Eve", isAnswer: false}
+    ]
+    }
 ]
+
+// let score = 0;
+
+// function beginQuiz() {
+//     currentQuestIndex= 0;
+//     score= 0;
+// }
+
+// function revealQuestions() {
+
+//     let currentQuest = quizQuestions[currentQuestIndex];
+//     let questionQueue= currentQuestIndex + 1;
+//     questionsEl.innerHTML= questionQueue + ". " + currentQuest.q;
+
+//     currentQuest.a.forEach(answer=> {
+//         const button = document.createElement("button");
+//         button.innerHTML = answer.text;
+//         button.classList.add("choice");
+//         optionsEl.appendChild(button);
+//     });
+// }
+
+// beginQuiz();
