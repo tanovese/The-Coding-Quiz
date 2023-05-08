@@ -5,7 +5,7 @@ const quizContainer= document.getElementById("quiz-container");
 const questionEl= document.getElementById("question-here");
 const choiceButton = document.querySelector(".choices");
 
-let randomQuestions, currentQuestionIndex
+// let randomQuestions, currentQuestionIndex
 
 beginButton.addEventListener("click", beginGame);
 
@@ -15,41 +15,53 @@ function beginGame() {
     randomQuestions= questions.sort(() => Math.random() - .5)
     currentQuestionIndex= 0;
     optionsContainer.setAttribute("style", "display:block");
-    beginNextQuestion();
+    revealChoices();
 }
 
-function beginNextQuestion() {
-    resetState()
-    revealQuestion(randomQuestions[currentQuestionIndex])
+// function beginNextQuestion() {
+//     revealChoices(randomQuestions[currentQuestionIndex])
+// }
+
+choiceButton.addEventListener("click", checkTrue);
+
+const q = document.getElementById("question-here");
+const a = document.getElementById("a");
+const b = document.getElementById("b");
+const c = document.getElementById("c");
+const r = document.getElementById("result");
+
+function nextQuestion() {
+    q.innerHTML="What is my favorite color?";
+    a.innerHTML= "Pink";
+    b.innerHTML= "Turquoise";
+    c.innerHTML= "Purple";
 }
 
-function revealQuestion(q) {
-    questionEl.innerText=q.q
-    q.a.forEach(a => {
-        const selectButton = document.createElement("select-button")
-        selectButton.innerText=a.text
-        selectButton.classList.add("choices")
-        if (a.correct) {
-            selectButton.dataset.correct = a.correct
-        }
-        selectButton.addEventListener("click", selectChoice)
-        choiceButton.appendChild(selectButton);
-    })
+function checkTrue() {
+    if(a === true) {
+    r.setAttribute("style", "display:block");
+    document.getElementById("result").innerHTML="Correct!";
+    } else {
+    r.setAttribute("style", "display:block");    
+    document.getElementById("result").innerHTML = "Incorrect"    
+    nextQuestion();
+    }
+}
+
+function revealChoices() {
+    q.innerHTML= "What is my favorite fruit?";
+    a.innerHTML= "A. Apple";
+    b.innerHTML= "B. Banana";
+    c.innerHTML= "C. Orange";
 }
 
 function resetState() {
-    
+
 }
 
 function selectChoice(e) {
 
 }
-
-
-
-
-
-
 
 var timeLeft= document.getElementById('time')
 
@@ -73,38 +85,32 @@ function timeLeftClock() {
 // The Questions to be asked //
 var questions= [
     {
-        q: "What is my favorite fruit?",
-        a: [{ text: "Apple", isAnswer: true },
-            { text: "Banana", isAnswer: false},
-            { text: "Orange", isAnswer: false}
-        ]
-
+        question: "What is my favorite fruit?",
+        choiceA: "Apple",
+        choiceB: "Banana",
+        choiceC: "Orange",
+        answer: "A"
     },
     {
-        q: "What is my favorite color?",
-        a: [{text: "Purple", isAnswer: false},
-            {text: "Turquiose", isAnswer: false},
-            {text: "Pink", isAnswer: false},
-            {text: "ALL of the above", isAnswer: true}
-        ]
-
+        question: "What is my favorite color?",
+        choiceA: "Pink",
+        choiceB: "Turquiose",
+        choiceC: "Purple",
+        answer: "C"
     },
     {
-        q: "What is my favorite pet?",
-        a: [{text: "Dog", isAnswer: false},
-            {text: "Dog & Cat", isAnswer: true},
-            {text: "Cat", isAnswer: false},
-            {text: "Rabbit", isAnswer: false},
-            
-    ]
+        question: "What is my favorite pet?",
+        choiceA: "Dog",
+        choiceB: "Dog & Cat",
+        chocieC: "Rabbit",
+        answer: "B"
     },
     {
-        q: "What is my favorite holiday?",
-        a: [{text: "Halloween", isAnswer: false},
-            {text: "The 4th of July", isAnswer: false},
-            {text: "Christmas", isAnswer: true},
-            {text: "New Year's Eve", isAnswer: false}
-    ]
+        question: "What is my favorite holiday?",
+        choiceA: "Halloween",
+        choiceB: "The 4th of July",
+        choiceC: "Christmas",
+        answer: "C"
     }
 ]
 

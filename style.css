@@ -39,34 +39,36 @@
     padding: 25px;
     padding-top: 20px;
     padding-bottom: 20px;
-    position: absolute;
     display: flex;
     text-align: center;
     align-items: center;
     flex-direction: column;
-    justify-content: space-between;
-    top: 25%;
-    left: 25%;
+    justify-content: center;
     margin: 6px;
-    border: 6px solid whitesmoke;
     border-radius: 15px;
-    background-color: darkcyan;
     margin-bottom: 40px;
     /* display: none; */
 }
 
 #coding-quiz-title {
     font-size: 35px;
-    padding-bottom: 15px;
+    padding-bottom: 18px;
     color: darkblue;
     margin:6px;
-    background-color: darkcyan;
+    font-weight: bold;
+    border-bottom: 3px solid darkblue;
+}
+
+#p-container {
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #p1, #p2 {
-    color: whitesmoke;
+    color: darkblue;
     font-size: 19px;
-    background-color: darkcyan;
+    font-weight: bold;
 }
 
 #begin-button {
@@ -88,30 +90,25 @@
 #options-container {
     padding: 45px;
     padding-top: 20px;
-    padding-bottom: 20px;
-    position: absolute;
     display: flex;
     text-align: center;
     align-items: center;
     flex-direction: column;
-    justify-content: space-between;
-    top: 25%;
-    left: 25%;
+    justify-content: center;
     margin: 6px;
-    border: 6px solid whitesmoke;
     border-radius: 15px;
-    background-color: darkcyan;
-    margin-bottom: 40px;
     display: none;
 }
 
 #question-here {
     text-align: center;
     align-items: center;
-    background-color: darkcyan;
     color: darkblue;
+    font-weight: bold;
+    font-style: italic;
     margin: 6px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+    padding-bottom: 15px;
     font-size: 35px;
 }
 
@@ -123,6 +120,7 @@
     font-size: 16px;
     border: 6px solid goldenrod;
     border-radius: 15px;
+    font-weight: bold;
     cursor: pointer;
 }
 
@@ -130,7 +128,17 @@
     background-color: whitesmoke;
 }
 
-/* 
-.display-none {
-    display: none;
-} */
+#result-container {
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#result {
+    display:none;
+    font-size: 25px;
+    color: darkblue;
+    font-weight: bold;
+    font-style: italic;
+}
