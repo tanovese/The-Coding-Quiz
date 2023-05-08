@@ -1,66 +1,67 @@
 const beginButton = document.getElementById("begin-button");
 const optionsContainer= document.getElementById("options-container");
 const quizContainer= document.getElementById("quiz-container");
-
-const questionEl= document.getElementById("question-here");
-const choiceButton = document.querySelector(".choices");
-
-// let randomQuestions, currentQuestionIndex
+const questionsEl= document.getElementById("question-here");
+const answerButtonsEl = document.getElementById("answer-buttons");
+const r = document.getElementById("result");
 
 beginButton.addEventListener("click", beginGame);
 
 function beginGame() {
     quizContainer.setAttribute("style", "display:none");
     timeLeftClock();
-    randomQuestions= questions.sort(() => Math.random() - .5)
-    currentQuestionIndex= 0;
     optionsContainer.setAttribute("style", "display:block");
-    revealChoices();
+    randomQuestions = questions.sort(() => Math.random() - .5)
+    currentQuestionIndex = 0
+    setNextQuestion();
 }
 
-// function beginNextQuestion() {
-//     revealChoices(randomQuestions[currentQuestionIndex])
-// }
-
-choiceButton.addEventListener("click", checkTrue);
-
-const q = document.getElementById("question-here");
-const a = document.getElementById("a");
-const b = document.getElementById("b");
-const c = document.getElementById("c");
-const r = document.getElementById("result");
-
-function nextQuestion() {
-    q.innerHTML="What is my favorite color?";
-    a.innerHTML= "Pink";
-    b.innerHTML= "Turquoise";
-    c.innerHTML= "Purple";
-}
-
-function checkTrue() {
-    if(a === true) {
-    r.setAttribute("style", "display:block");
-    document.getElementById("result").innerHTML="Correct!";
-    } else {
-    r.setAttribute("style", "display:block");    
-    document.getElementById("result").innerHTML = "Incorrect"    
-    nextQuestion();
-    }
-}
-
-function revealChoices() {
-    q.innerHTML= "What is my favorite fruit?";
-    a.innerHTML= "A. Apple";
-    b.innerHTML= "B. Banana";
-    c.innerHTML= "C. Orange";
+function setNextQuestion() {
+    resetState()
+    revealQuestions(randomQuestions[currentQuestionIndex])
 }
 
 function resetState() {
-
+    while (answerButtonsEl.firstChild) {
+        answerButtonsEl.removeChild(answerButtonsEl.firstChild)
+    }
 }
 
-function selectChoice(e) {
+function revealQuestions(q) {
+    questionsEl.innerText= q.q
+    q.a.forEach(a=> {
+        const buttonSelect = document.createElement("button")
+        buttonSelect.innerText=a.text
+        buttonSelect.classList.add("choices");
+        if(a.correct) {
+            buttonSelect.dataset.correct=a.correct
+        }
+        buttonSelect.addEventListener("click", selectChoice)
+        answerButtonsEl.appendChild(buttonSelect)
+    })
+}
 
+answerButtonsEl.addEventListener("click", () => {
+    currentQuestionIndex++
+    setNextQuestion();
+})
+
+function selectChoice(e) {
+    const selectedButton= e.target
+    const correct= selectedButton.dataset.correct
+    Array.from(answerButtonsEl.children).forEach(button => {
+    })
+    checkTrue()
+}
+
+function checkTrue() {
+    if(questions[1][0] === true) {
+    r.setAttribute("style", "display:block");
+    r.innerHTML="Correct";
+    } else {
+    r.setAttribute("style", "display:block");
+    r.innerHTML="Incorrect";
+    }
 }
 
 var timeLeft= document.getElementById('time')
@@ -83,56 +84,37 @@ function timeLeftClock() {
 }
 
 // The Questions to be asked //
-var questions= [
+const questions= [
     {
-        question: "What is my favorite fruit?",
-        choiceA: "Apple",
-        choiceB: "Banana",
-        choiceC: "Orange",
-        answer: "A"
+        q: "What is my favorite fruit?",
+        a: [
+            { text: "Apple", correct: true},
+            { text: "Banana", correct: false},
+            { text: "Orange", correct: false}
+        ]
     },
     {
-        question: "What is my favorite color?",
-        choiceA: "Pink",
-        choiceB: "Turquiose",
-        choiceC: "Purple",
-        answer: "C"
+        q: "What is my favorite color?",
+        a: [
+            { text: "Pink", correct: false},
+            { text: "Turquiose", correct: false},
+            { text: "Purple", correct: true},
+        ]
     },
     {
-        question: "What is my favorite pet?",
-        choiceA: "Dog",
-        choiceB: "Dog & Cat",
-        chocieC: "Rabbit",
-        answer: "B"
+        q: "What is my favorite pet?",
+        a: [
+            { text: "Dog", correct: false},
+            { text: "Dog & Cat", correct: true},
+            { text: "Rabbit", correct: false},
+        ]
     },
     {
-        question: "What is my favorite holiday?",
-        choiceA: "Halloween",
-        choiceB: "The 4th of July",
-        choiceC: "Christmas",
-        answer: "C"
+        q: "What is my favorite holiday?",
+        a: [
+            { text: "Halloween", correct: false},
+            { text: "The 4th of July", correct: false},
+            { text: "Christmas", correct: true}
+        ]
     }
 ]
-
-// let score = 0;
-
-// function beginQuiz() {
-//     currentQuestIndex= 0;
-//     score= 0;
-// }
-
-// function revealQuestions() {
-
-//     let currentQuest = quizQuestions[currentQuestIndex];
-//     let questionQueue= currentQuestIndex + 1;
-//     questionsEl.innerHTML= questionQueue + ". " + currentQuest.q;
-
-//     currentQuest.a.forEach(answer=> {
-//         const button = document.createElement("button");
-//         button.innerHTML = answer.text;
-//         button.classList.add("choice");
-//         optionsEl.appendChild(button);
-//     });
-// }
-
-// beginQuiz();

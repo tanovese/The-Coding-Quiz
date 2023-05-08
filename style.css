@@ -136,9 +136,25 @@
 }
 
 #result {
-    display:none;
-    font-size: 25px;
+    display: none;
     color: darkblue;
+    font-size: 25px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+h1.correct {
+    display: block;
+    color:darkolivegreen;
+    font-size: 25px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+h1.incorrect {
+    display: block;
+    color: brown;
+    font-size: 25px;
     font-weight: bold;
     font-style: italic;
 }
