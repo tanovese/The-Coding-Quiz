@@ -21,6 +21,11 @@ function beginGame() {
 function setNextQuestion() {
     resetState()
     revealQuestions(randomQuestions[currentQuestionIndex])
+    // if(currentQuestionIndex === randomQuestions.length) {
+    //     optionsContainer.setAttribute("style", "display:none");
+    //     r.setAttribute("style", "display:none");
+    //     endDisplay.setAttribute("style", "display:block");
+    // }
 }
 
 function resetState() {
@@ -30,7 +35,7 @@ function resetState() {
 }
 
 function revealQuestions(q) {
-    questionsEl.innerText= q.q
+    questionsEl.innerText= q.q //<- is there a way to access the array differently here? Producing an error.
     q.a.forEach(a=> {
         const buttonSelect = document.createElement("button")
         buttonSelect.innerText=a.text
@@ -62,27 +67,27 @@ console.log(answer)
         r.setAttribute("style", "display:block");
         r.innerHTML="Incorrect";
         r.style.color="brown";
+        timeLeft-10
+        timeLeft.style.color="brown";
         }
         currentQuestionIndex++
-        setNextQuestion()
-    if (answer === false) {
-        deductTime(); // <- have to fix function. It only works one time. setAttributes dont work.
-        reduceScore(); // <- have to define function
+        setNextQuestion();
+        
+    //     deductTime(); // <- have to fix function. It only works one time. setAttributes dont work.
+    // //     reduceScore(); // <- have to define function
     }
-}
 
-function deductTime() {
-    timeLeft - 10
-    timeLeft.style.color="brown";
-    // if(timeLeft === 0) {
-    // quizContainer.setAttribute("style", "display:none");
-    // endDisplay.setAttribute("style", "display:block");
-    // }
-}
+// function answerWrong();
+
+
+// function deductTime() {
+//     timeLeft - 10
+//     timeLeft.style.color="brown";
+// }
 
 // Our function for time remaining //
 function timeLeftClock() {
-        var clock= 40;
+        var clock= 30;
 
     //Set interval
 
@@ -91,7 +96,10 @@ function timeLeftClock() {
         timeLeft.textContent = "TIME REMAINING: " + clock;
         if (clock === 0) {
           clearInterval(interval)
-          return
+            optionsContainer.setAttribute("style", "display:none");
+            r.setAttribute("style", "display:none");
+            endDisplay.setAttribute("style", "display:block");
+            return
         }
     }, 1000);
 }
