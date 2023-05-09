@@ -6,7 +6,9 @@ const answerButtonsEl = document.getElementById("answer-buttons");
 const r = document.getElementById("result");
 const endDisplay = document.getElementById("end-of-quiz-container");
 var timeLeft= document.getElementById('time');
-var clock= 30;
+var clock= 100;
+const currentScore = document.getElementById("score");
+let score= 0;
 
 beginButton.addEventListener("click", beginGame);
 
@@ -64,6 +66,8 @@ console.log(answer)
         r.setAttribute("style", "display:block");
         r.innerHTML="Correct!"
         r.style.color="darkolivegreen";
+        timeLeft.style.color="darkolivegreen";
+        scorePoints();
         } else {
         r.setAttribute("style", "display:block");
         r.innerHTML="Incorrect";
@@ -73,18 +77,12 @@ console.log(answer)
         }
         currentQuestionIndex++
         setNextQuestion();
-        
-    //     deductTime(); // <- have to fix function. It only works one time. setAttributes dont work.
-    // //     reduceScore(); // <- have to define function
     }
 
-// function answerWrong();
-
-
-// function deductTime() {
-//     timeLeft - 10
-//     timeLeft.style.color="brown";
-// }
+function scorePoints() {
+    score += 100;
+    currentScore.textContent= "SCORE POINTS: " + score;
+}
 
 // Our function for time remaining //
 function timeLeftClock() {

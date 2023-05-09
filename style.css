@@ -35,6 +35,21 @@
     background-color: mediumpurple;
 }
 
+#score-points-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: start;
+}
+
+#score {
+    color: darkolivegreen;
+    margin: 6px;
+    margin-left: 65px;
+    font-style: italic;
+    font-weight: bold;
+}
+
 #quiz-container {
     padding: 25px;
     padding-top: 20px;
@@ -229,16 +244,4 @@
 #enter-button:hover {
     font-style: italic;
     background-color: whitesmoke;
-}
-
-#score {
-    font-size: 23px;
-    display: flex;
-    justify-content: start;
-    color: darkblue;
-    margin: 6px;
-    font-weight: bold;
-    font-style: italic;
-    margin-top: 50px;
-    margin-left: 50px;
 }
