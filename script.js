@@ -4,6 +4,8 @@ const quizContainer= document.getElementById("quiz-container");
 const questionsEl= document.getElementById("question-here");
 const answerButtonsEl = document.getElementById("answer-buttons");
 const r = document.getElementById("result");
+const endDisplay = document.getElementById("end-of-quiz-container")
+var timeLeft= document.getElementById('time')
 
 beginButton.addEventListener("click", beginGame);
 
@@ -41,34 +43,46 @@ function revealQuestions(q) {
     })
 }
 
-answerButtonsEl.addEventListener("click", () => {
-    currentQuestionIndex++
-    setNextQuestion();
-})
-
 function selectChoice(e) {
-    const selectedButton= e.target
-    const correct= selectedButton.dataset.correct
-    Array.from(answerButtonsEl.children).forEach(button => {
-    })
-    checkTrue()
+    console.log("selectChoice", e)
+    console.log(e.srcElement.textContent)
+    let answer = false;
+    var answers = questions[currentQuestionIndex].a;
+for (let i=0; i < answers.length; i ++) {
+    if( answers[i].text === e.srcElement.textContent) {
+       answer= answers[i].correct;
+    }
 }
-
-function checkTrue() {
-    if(questions[1][0] === true) {
-    r.setAttribute("style", "display:block");
-    r.innerHTML="Correct";
-    } else {
-    r.setAttribute("style", "display:block");
-    r.innerHTML="Incorrect";
+console.log(answer)
+    if(answer === true) {
+        r.setAttribute("style", "display:block");
+        r.innerHTML="Correct!"
+        r.style.color="darkolivegreen";
+        } else {
+        r.setAttribute("style", "display:block");
+        r.innerHTML="Incorrect";
+        r.style.color="brown";
+        }
+        currentQuestionIndex++
+        setNextQuestion()
+    if (answer === false) {
+        deductTime(); // <- have to fix function. It only works one time. setAttributes dont work.
+        reduceScore(); // <- have to define function
     }
 }
 
-var timeLeft= document.getElementById('time')
+function deductTime() {
+    timeLeft - 10
+    timeLeft.style.color="brown";
+    // if(timeLeft === 0) {
+    // quizContainer.setAttribute("style", "display:none");
+    // endDisplay.setAttribute("style", "display:block");
+    // }
+}
 
 // Our function for time remaining //
 function timeLeftClock() {
-        var clock= 100;
+        var clock= 40;
 
     //Set interval
 
@@ -80,7 +94,6 @@ function timeLeftClock() {
           return
         }
     }, 1000);
-
 }
 
 // The Questions to be asked //

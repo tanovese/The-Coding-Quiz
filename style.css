@@ -143,18 +143,91 @@
     font-style: italic;
 }
 
-h1.correct {
-    display: block;
-    color:darkolivegreen;
-    font-size: 25px;
+#end-of-quiz-container {
+    padding: 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: 6px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    display: none;
+}
+
+#end-game-title {
+    text-align: center;
+    align-items: center;
+    color: darkblue;
     font-weight: bold;
+    font-style: italic;
+    padding-bottom: 30px;
+    margin: 6px;
+    font-size: 35px;
+}
+
+#initials-title {
+    text-align: center;
+    align-items: center;
+    color: darkblue;
+    font-weight: bold;
+    font-style: italic;
+    margin: 6px;
+    font-size: 25px;
+}
+
+#initials-input {
+    padding: 10px;
+    color: goldenrod;
+    background-color: mediumvioletred;
+    margin: 6px;
+    font-size: 16px;
+    border: 6px solid goldenrod;
+    border-radius: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#score-title {
+    text-align: center;
+    align-items: center;
+    color: darkblue;
+    font-weight: bold;
+    font-style: italic;
+    margin: 6px;
+    font-size: 25px;
+}
+
+#score-input {
+    padding: 10px;
+    color: goldenrod;
+    background-color: mediumvioletred;
+    margin: 6px;
+    font-size: 16px;
+    border: 6px solid goldenrod;
+    border-radius: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+#enter-button {
+    padding: 15px;
+    color: goldenrod;
+    background-color: mediumvioletred;
+    margin: 6px;
+    font-size: 16px;
+    border: 6px solid goldenrod;
+    border-radius: 15px;
+    font-weight: bold;
+    cursor: pointer;
     font-style: italic;
 }
 
-h1.incorrect {
-    display: block;
-    color: brown;
-    font-size: 25px;
-    font-weight: bold;
+#enter-button:hover {
     font-style: italic;
+    background-color: whitesmoke;
 }
