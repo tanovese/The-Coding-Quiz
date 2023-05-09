@@ -46,7 +46,6 @@
     justify-content: center;
     margin: 6px;
     border-radius: 15px;
-    margin-bottom: 40px;
     /* display: none; */
 }
 
@@ -230,4 +229,16 @@
 #enter-button:hover {
     font-style: italic;
     background-color: whitesmoke;
+}
+
+#score {
+    font-size: 23px;
+    display: flex;
+    justify-content: start;
+    color: darkblue;
+    margin: 6px;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 50px;
+    margin-left: 50px;
 }

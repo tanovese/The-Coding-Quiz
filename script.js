@@ -4,8 +4,9 @@ const quizContainer= document.getElementById("quiz-container");
 const questionsEl= document.getElementById("question-here");
 const answerButtonsEl = document.getElementById("answer-buttons");
 const r = document.getElementById("result");
-const endDisplay = document.getElementById("end-of-quiz-container")
-var timeLeft= document.getElementById('time')
+const endDisplay = document.getElementById("end-of-quiz-container");
+var timeLeft= document.getElementById('time');
+var clock= 30;
 
 beginButton.addEventListener("click", beginGame);
 
@@ -67,7 +68,7 @@ console.log(answer)
         r.setAttribute("style", "display:block");
         r.innerHTML="Incorrect";
         r.style.color="brown";
-        timeLeft-10
+        clock -= 10
         timeLeft.style.color="brown";
         }
         currentQuestionIndex++
@@ -87,8 +88,6 @@ console.log(answer)
 
 // Our function for time remaining //
 function timeLeftClock() {
-        var clock= 30;
-
     //Set interval
 
     var interval= setInterval(function () {
