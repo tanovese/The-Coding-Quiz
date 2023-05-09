@@ -91,12 +91,12 @@ function timeLeftClock() {
     var interval= setInterval(function () {
         clock --;
         timeLeft.textContent = "TIME REMAINING: " + clock;
-        if (clock === 0) {
+        if (clock === 0 || currentQuestionIndex > 3) {
           clearInterval(interval)
-            optionsContainer.setAttribute("style", "display:none");
             r.setAttribute("style", "display:none");
+            optionsContainer.setAttribute("style", "display:none");
             endDisplay.setAttribute("style", "display:block");
-            return
+            return;
         }
     }, 1000);
 }
