@@ -17,6 +17,8 @@ const initialsList= document.querySelector("initials-list");
 const highScoreList= document.querySelector("high-scores-list");
 const saveButton= document.getElementById("save-button");
 const highScoresContainer = document.getElementById("high-scores-container");
+const highScoreHeader = document.getElementById("high-scores-header");
+const restart = document.getElementById("restart-button");
 // initialsList.innerHTML=localStorage.getItem("initialsInputValue");
 // highScoreList.innerHTML=localStorage.getItem('scoreInputValue');
 // highScorePts.innerHTML=localStorage.getItem("highscoreValue");
@@ -48,7 +50,7 @@ function resetState() {
 }
 
 function revealQuestions(q) {
-    questionsEl.innerText= q.q //<- is there a way to access the array differently here? Producing an error.
+    questionsEl.innerText= q.q
     q.a.forEach(a=> {
         const buttonSelect = document.createElement("button")
         buttonSelect.innerText=a.text
@@ -92,29 +94,38 @@ console.log(answer)
 function scorePoints() {
     score += 100;
     currentScore.textContent= "SCORE POINTS: " + score;
-    // if (highScore > score) {
+    localStorage.setItem=('scoreValue', score);
+    // if (score > 0)
+    // highScore.textContent="HIGH SCORE: " + score;
+    // if (score < highScore) {
     //     highScore=score;
-    //     highScore.textContent= "HIGH SCORE: " + highScore;
+    //     highScorePts.textContent= "HIGH SCORE: " + highScore;
+    //     localStorage.setItem('highscoreValue', highScorePts);
     // }
-    // scoreStorage();
 }
 
-// function scoreStorage() {
-//     localStorage.setItem('scoreValue', score);
+saveButton.addEventListener("click", inputStorage);
 
-//     localStorage.setItem('highscoreValue', highscore);
-// }
+function inputStorage() {
+    localStorage.setItem('initialsInputValue', initialsInput.value);
 
-// saveButton.addEventListener("click", inputStorage);
+    localStorage.setItem('scoreInputValue', scoreInput.value);
+}
 
-// function inputStorage() {
-//     localStorage.setItem('initialsInputValue', initialsInput.value);
+highScoreHeader.addEventListener("click", showHighScores);
 
-//     localStorage.setItem('scoreInputValue', scoreInput.value);
+function showHighScores(){
+    quizContainer.setAttribute("style", "display:none");
+    endDisplay.setAttribute("style", "display:none");
+    highScoresContainer.setAttribute("style", "display:block");
+}
 
-//     endDisplay.setAttribute("style", "display:none");
-//     highScoresContainer.setAttribute("style", "display:block");
-// }
+restart.addEventListener("click", showQuizContainer);
+
+function showQuizContainer() {
+    highScoresContainer.setAttribute("style", "display:none");
+    quizContainer.setAttribute("style", "display:block");
+}
 
 // Our function for time remaining //
 function timeLeftClock() {

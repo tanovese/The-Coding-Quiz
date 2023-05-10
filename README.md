@@ -10,7 +10,15 @@ N/A
 
 ## Usage
 
-Read the the rules of the challenge on the start page. Select "Begin" if you are ready to test your code knowledge. Incorrect answers will deduct 10 seconds from your given time limit.
+The user can find the challenge instructions on the begin page and they can choose "Begin" if they are ready to test their code knowledge.
+
+Incorrect answers will deduct 10 seconds from the user's given time limit and an "Incorrect" message will show up on the screen in dark red.
+
+Corrects answers will allow the user to retain their given time limit, and will show the user a "Correct!" message in green on their screen.
+
+When the time reaches zero, or when the user reaches the end of the questions then the challenge ends.
+
+At the end of the challenge the user has the ability to enter their score and their initials. The user can click on the "view high scores" tab to view their saved scores.
 
 ## Screenshot and Link to Application
 
