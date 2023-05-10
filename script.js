@@ -11,16 +11,10 @@ const currentScore = document.getElementById("score");
 const highScorePts= document.getElementById("high-score");
 let score= 0;
 let highScore=0;
-const initialsInput= document.getElementById("initials-input");
-const scoreInput =document.getElementById("score-input");
-const initialsList= document.querySelector("initials-list");
-const highScoreList= document.querySelector("high-scores-list");
 const saveButton= document.getElementById("save-button");
 const highScoresContainer = document.getElementById("high-scores-container");
 const highScoreHeader = document.getElementById("high-scores-header");
 const restart = document.getElementById("restart-button");
-// initialsList.innerHTML=localStorage.getItem("initialsInputValue");
-// highScoreList.innerHTML=localStorage.getItem('scoreInputValue');
 // highScorePts.innerHTML=localStorage.getItem("highscoreValue");
 // currentScore.innerHTML=localStorage.getItem("scoreValue");
 
@@ -104,12 +98,26 @@ function scorePoints() {
     // }
 }
 
-saveButton.addEventListener("click", inputStorage);
+saveButton.addEventListener("click", storeInput);
 
-function inputStorage() {
-    localStorage.setItem('initialsInputValue', initialsInput.value);
+function storeInput() {
 
-    localStorage.setItem('scoreInputValue', scoreInput.value);
+    const initialsInput= document.getElementById("initials-input");
+    const scoreInput =document.getElementById("score-input");
+    
+    localStorage.setItem('initialsInputValue', JSON.stringify(initialsInput));
+    localStorage.setItem('scoreInputValue', JSON.stringify(scoreInput));
+    renderInput();
+}
+
+function renderInput() {
+    var lastInitialsInput = JSON.parse(localStorage.getItem('initialsInputValue'));
+    var lastScoreInput = JSON.parse(localStorage.getItem('scoreInputValue'));
+    const initialsList= document.querySelector(".initials-list");
+    const highScoreList= document.querySelector(".high-scores-list");
+
+    initialsList.textContent= lastInitialsInput;
+    highScoreList.textContent=lastScoreInput;
 }
 
 highScoreHeader.addEventListener("click", showHighScores);
