@@ -8,7 +8,20 @@ const endDisplay = document.getElementById("end-of-quiz-container");
 var timeLeft= document.getElementById('time');
 var clock= 100;
 const currentScore = document.getElementById("score");
+const highScorePts= document.getElementById("high-score");
 let score= 0;
+let highScore=0;
+const initialsInput= document.getElementById("initials-input");
+const scoreInput =document.getElementById("score-input");
+const initialsList= document.querySelector("initials-list");
+const highScoreList= document.querySelector("high-scores-list");
+const saveButton= document.getElementById("save-button");
+const highScoresContainer = document.getElementById("high-scores-container");
+// initialsList.innerHTML=localStorage.getItem("initialsInputValue");
+// highScoreList.innerHTML=localStorage.getItem('scoreInputValue');
+// highScorePts.innerHTML=localStorage.getItem("highscoreValue");
+// currentScore.innerHTML=localStorage.getItem("scoreValue");
+
 
 beginButton.addEventListener("click", beginGame);
 
@@ -23,12 +36,9 @@ function beginGame() {
 
 function setNextQuestion() {
     resetState()
-    revealQuestions(randomQuestions[currentQuestionIndex])
-    // if(currentQuestionIndex === randomQuestions.length) {
-    //     optionsContainer.setAttribute("style", "display:none");
-    //     r.setAttribute("style", "display:none");
-    //     endDisplay.setAttribute("style", "display:block");
-    // }
+    if(currentQuestionIndex < 4) {
+        revealQuestions(randomQuestions[currentQuestionIndex])
+    }
 }
 
 function resetState() {
@@ -82,7 +92,29 @@ console.log(answer)
 function scorePoints() {
     score += 100;
     currentScore.textContent= "SCORE POINTS: " + score;
+    // if (highScore > score) {
+    //     highScore=score;
+    //     highScore.textContent= "HIGH SCORE: " + highScore;
+    // }
+    // scoreStorage();
 }
+
+// function scoreStorage() {
+//     localStorage.setItem('scoreValue', score);
+
+//     localStorage.setItem('highscoreValue', highscore);
+// }
+
+// saveButton.addEventListener("click", inputStorage);
+
+// function inputStorage() {
+//     localStorage.setItem('initialsInputValue', initialsInput.value);
+
+//     localStorage.setItem('scoreInputValue', scoreInput.value);
+
+//     endDisplay.setAttribute("style", "display:none");
+//     highScoresContainer.setAttribute("style", "display:block");
+// }
 
 // Our function for time remaining //
 function timeLeftClock() {
@@ -106,33 +138,33 @@ const questions= [
     {
         q: "What is my favorite fruit?",
         a: [
-            { text: "Apple", correct: true},
-            { text: "Banana", correct: false},
-            { text: "Orange", correct: false}
+            { text: "A. Apple", correct: true},
+            { text: "B. Banana", correct: false},
+            { text: "C. Orange", correct: false}
         ]
     },
     {
         q: "What is my favorite color?",
         a: [
-            { text: "Pink", correct: false},
-            { text: "Turquiose", correct: false},
-            { text: "Purple", correct: true},
+            { text: "A. Pink", correct: false},
+            { text: "B. Turquiose", correct: false},
+            { text: "C. Purple", correct: true},
         ]
     },
     {
         q: "What is my favorite pet?",
         a: [
-            { text: "Dog", correct: false},
-            { text: "Dog & Cat", correct: true},
-            { text: "Rabbit", correct: false},
+            { text: "A. Dog", correct: false},
+            { text: "B. Dog & Cat", correct: true},
+            { text: "C. Rabbit", correct: false},
         ]
     },
     {
         q: "What is my favorite holiday?",
         a: [
-            { text: "Halloween", correct: false},
-            { text: "The 4th of July", correct: false},
-            { text: "Christmas", correct: true}
+            { text: "A. Halloween", correct: false},
+            { text: "B. The 4th of July", correct: false},
+            { text: "C. Christmas", correct: true}
         ]
     }
 ]

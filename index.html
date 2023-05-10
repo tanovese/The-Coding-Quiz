@@ -9,12 +9,15 @@
 </head>
 
 <header id="header-container">
-    <h3 id="score-board">VIEW SCORE BOARD</h3>
+    <h3 id="high-scores-header">VIEW HIGH SCORES</h3>
     <h3 id="time">TIME REMAINING</h3>
 </header>
 
+<body>
+
 <section id="score-points-container">
     <h3 id="score">SCORE POINTS</h3>
+    <h3 id="high-score">HIGH SCORE</h3>
 </section>
 
 <section id="quiz-container">
@@ -23,8 +26,11 @@
         <p id="p1">Answer the following coding questions within the given time limit.</p>
         <p id="p2">Wrong answers will drop your time by 10 seconds.</p>
     </section>
-    <button type="button" id="begin-button" style="display: block;" onclick="this.style.display='none'">BEGIN!</button>
-    
+
+<section id="begin-button-container">
+    <button type="button" id="begin-button" style="display: block;" onclick="this.style.display='none'">BEGIN</button>
+</section>
+
 </section>
 
 <section id="options-container">
@@ -47,12 +53,25 @@
         <input type="text" id="initials-input" name="initials"><br>
         <h1 id="score-title">Score</h1>
         <input type="text" id="score-input" name="initials"><br>
-        <input type="submit" id="enter-button" value="Enter">
+        <input type="submit" id="save-button" value="SAVE">
     </form>
 </section>
 
-<body>
+<section id="high-scores-container">
+    <h1 id="high-scores-title">High Scores</h1>
+
+    <section id="list-container">
+    <p class="high-scores-list">200</p>
+    <p class="initials-list">TG</p>
+    </section>
+
+    <section id="restart-button-container">
+    <button type="button" id="restart-button">RESTART</button>
+    </section>
+</section>
+
     <script src="./script.js"></script>
+
 </body>
 
 <footer>
