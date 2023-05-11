@@ -6,7 +6,7 @@ const answerButtonsEl = document.getElementById("answer-buttons");
 const r = document.getElementById("result");
 const endDisplay = document.getElementById("end-of-quiz-container");
 var timeLeft= document.getElementById('time');
-var clock= 100;
+var clock= 60;
 const currentScore = document.getElementById("score");
 const highScorePts= document.getElementById("high-score");
 let score= 0;
@@ -90,11 +90,11 @@ function scorePoints() {
     currentScore.textContent= "SCORE POINTS: " + score;
     localStorage.setItem('scoreValue', score);
 
-    if (score < highScore) {
-        highScore=score;
-        highScorePts.textContent= "HIGH SCORE: " + 100;
-        localStorage.setItem('highscoreValue', highScore);
-    }
+    // if (score < highScore) {
+    //     highScore=score;
+    //     highScorePts.textContent= "HIGH SCORE: " + 100;
+    //     localStorage.setItem('highscoreValue', highScore);
+    // }
 }
 
 saveButton.addEventListener("click", storeInput);
@@ -155,35 +155,35 @@ function timeLeftClock() {
 // The Questions to be asked //
 const questions= [
     {
-        q: "What is my favorite fruit?",
+        q: "What is the DOM?",
         a: [
-            { text: "A. Apple", correct: true},
-            { text: "B. Banana", correct: false},
-            { text: "C. Orange", correct: false}
+            { text: "A. The document object model", correct: true},
+            { text: "B. The data opportunity method", correct: false},
+            { text: "C. data object mode", correct: false}
         ]
     },
     {
-        q: "What is my favorite color?",
+        q: "What is a function?",
         a: [
-            { text: "A. Pink", correct: false},
-            { text: "B. Turquiose", correct: false},
-            { text: "C. Purple", correct: true},
+            { text: "A. Code that performs based on conditions of 'if' statements", correct: false},
+            { text: "B. A value that can change", correct: false},
+            { text: "C. A 'self contained' block of code which accomplishes a specific task", correct: true},
         ]
     },
     {
-        q: "What is my favorite pet?",
+        q: "What is an array?",
         a: [
-            { text: "A. Dog", correct: false},
-            { text: "B. Dog & Cat", correct: true},
-            { text: "C. Rabbit", correct: false},
+            { text: "A. A result with two possible values, true or false", correct: false},
+            { text: "B. A collection of stored data, referenced by index", correct: true},
+            { text: "C. A sequence of characters which represent text", correct: false},
         ]
     },
     {
-        q: "What is my favorite holiday?",
+        q: "In HTML, where is the JavaScript 'src' inserted?",
         a: [
-            { text: "A. Halloween", correct: false},
-            { text: "B. The 4th of July", correct: false},
-            { text: "C. Christmas", correct: true}
+            { text: "A. Anywhere above the body element", correct: false},
+            { text: "B. Between <head> and </head> tags", correct: false},
+            { text: "C. Between <script> and </script> tags", correct: true}
         ]
     }
 ]
