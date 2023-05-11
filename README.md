@@ -10,25 +10,25 @@ N/A
 
 ## Usage
 
-The user can find the challenge instructions on the begin page and they can choose "Begin" if they are ready to test their code knowledge.
+The user can find the challenge instructions on the begin page and select beginwhen they are ready.
 
-Incorrect answers will deduct 10 seconds from the user's given time limit and an "Incorrect" message will show up on the screen in dark red.
+After completing the challenge, the user can enter their final score, initials, and view the highscore page. The user gets the option to restart the game at the end after saving their information.
 
-Corrects answers will allow the user to retain their given time limit, and will show the user a "Correct!" message in green on their screen.
-
-When the time reaches zero, or when the user reaches the end of the questions then the challenge ends.
-
-At the end of the challenge the user has the ability to enter their score and their initials. The user can click on the "view high scores" tab to view their saved scores.
+Right click and choose inspect to view the code for the project.
 
 ## Screenshot and Link to Application
 
-![]()
+![](./images/Screenshot%202023-05-11%20141551.png)
 
 Link: 
 
 ## Credits
 
-Coming soon..
+Some of the code inspiration for the project was derived from a video tutorial titled, "Build a Quiz App with JavaScript" on Youtube from the channel Web Dev Simplified.
+
+Specifically, this was used for the functions which reveal the quiz questions, randomize them, and show the next question. This video also aided in the arrangement of the array structure, the selectChoice function and resetState function.
+
+Completion of the project was done with the help of Rutgers' Slack learning assistants.
 
 ## License
 

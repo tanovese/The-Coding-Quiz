@@ -18,8 +18,11 @@ const restart = document.getElementById("restart-button");
 // highScorePts.innerHTML=localStorage.getItem("highscoreValue");
 // currentScore.innerHTML=localStorage.getItem("scoreValue");
 
+
+//begin button
 beginButton.addEventListener("click", beginGame);
 
+//function to begin after pressing begin
 function beginGame() {
     quizContainer.setAttribute("style", "display:none");
     timeLeftClock();
@@ -29,6 +32,7 @@ function beginGame() {
     setNextQuestion();
 }
 
+//set next Q
 function setNextQuestion() {
     resetState()
     if(currentQuestionIndex < 4) {
@@ -36,12 +40,14 @@ function setNextQuestion() {
     }
 }
 
+//reset
 function resetState() {
     while (answerButtonsEl.firstChild) {
         answerButtonsEl.removeChild(answerButtonsEl.firstChild)
     }
 }
 
+//reveal questions onto the screen
 function revealQuestions(q) {
     questionsEl.innerText= q.q
     q.a.forEach(a=> {
@@ -56,6 +62,8 @@ function revealQuestions(q) {
     })
 }
 
+//select choice function with defining how a correct answer is selected
+//if statements to define what happens if a user selects correct or incorrect
 function selectChoice(e) {
     console.log("selectChoice", e)
     console.log(e.srcElement.textContent)
@@ -66,12 +74,13 @@ for (let i=0; i < answers.length; i ++) {
        answer= answers[i].correct;
     }
 }
-
+//if the user selects correct answer now we are going to let them know
+//if not we will also let them know
 console.log(answer)
     if(answer === true) {
         r.setAttribute("style", "display:block");
         r.innerHTML="Correct!"
-        r.style.color="darkolivegreen";
+        r.style.color="darkgreen";
         timeLeft.style.color="darkgreen";
         scorePoints();
         } else {
@@ -85,6 +94,8 @@ console.log(answer)
         setNextQuestion();
     }
 
+    //score points function increases score 100 pts if user selects correct
+    //also stores that score in local storage
 function scorePoints() {
     score += 100;
     currentScore.textContent= "SCORE POINTS: " + score;
@@ -97,10 +108,14 @@ function scorePoints() {
     // }
 }
 
+//upon save, the initials input and score input are stored
 saveButton.addEventListener("click", storeInput);
 
+//store input function which stores input and also prevents the default
+//the prevent default prevents the page to auto reload when the user clicks save
 function storeInput(event) {
     event.preventDefault();
+
     const initialsInput= document.getElementById("initials-input");
     const scoreInput =document.getElementById("score-input");
     localStorage.setItem('initialsInputValue', JSON.stringify(initialsInput.value));
@@ -108,6 +123,7 @@ function storeInput(event) {
     renderInput();
 }
 
+//render input function puts user input into the list items
 function renderInput() {
     var lastInitialsInput = JSON.parse(localStorage.getItem('initialsInputValue'));
     var lastScoreInput = JSON.parse(localStorage.getItem('scoreInputValue'));
@@ -121,16 +137,22 @@ function renderInput() {
     highScoresContainer.setAttribute("style", "display:block");
 }
 
+//upon clicking the highscores tab, the showHighScores function runs
 highScoreHeader.addEventListener("click", showHighScores);
 
+//showHighScores sets quiz container attribute to none, endDisplay to none and
+//then shows the highScoresContainer by setting display to block
 function showHighScores() {
     quizContainer.setAttribute("style", "display:none");
     endDisplay.setAttribute("style", "display:none");
     highScoresContainer.setAttribute("style", "display:block");
 }
 
+//upon selecting restart on the high scores page we are taken back to the quiz container
 restart.addEventListener("click", showQuizContainer);
 
+//highScoresContainer is set to display none and quizContainer set to display
+//so that we can choose to begin the challenge again
 function showQuizContainer() {
     highScoresContainer.setAttribute("style", "display:none");
     quizContainer.setAttribute("style", "display:block");

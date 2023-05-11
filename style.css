@@ -46,7 +46,7 @@
     color:darkolivegreen;
     padding: 5px;
     margin: 3px;
-    margin-left: 65px;
+    margin-left: 15%;
     font-style: italic;
     font-weight: bold;
 }
@@ -75,7 +75,6 @@
 #p-container {
     padding: 5px;
     margin-top: 10px;
-    margin-bottom: 30px;
 }
 
 #p1, #p2 {
@@ -164,15 +163,13 @@
 #result {
     display: none;
     color: darkblue;
-    font-size: 35px;
+    font-size: 30px;
     font-weight: bold;
     font-style: italic;
 }
 
 #end-of-quiz-container {
-    padding: 15px;
     display:flex;
-    padding-bottom: 20px;
     text-align: center;
     align-items: center;
     flex-direction: column;
