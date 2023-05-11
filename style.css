@@ -43,16 +43,7 @@
 }
 
 #score {
-    color: darkolivegreen;
-    padding: 5px;
-    margin: 3px;
-    margin-left: 65px;
-    font-style: italic;
-    font-weight: bold;
-}
-
-#high-score {
-    color: darkgreen;
+    color:darkolivegreen;
     padding: 5px;
     margin: 3px;
     margin-left: 65px;
@@ -63,7 +54,7 @@
 #quiz-container {
     padding: 15px;
     padding-bottom: 30px;
-    display: flex;
+    /* display: flex; */
     text-align: center;
     align-items: center;
     flex-direction: column;
@@ -174,8 +165,8 @@
 
 #end-of-quiz-container {
     padding: 15px;
+    display:flex;
     padding-bottom: 20px;
-    display: flex;
     text-align: center;
     align-items: center;
     flex-direction: column;
@@ -347,4 +338,8 @@
     color: darkolivegreen;
     font-style: italic;
 
+}
+
+.hide {
+    display: none;
 }

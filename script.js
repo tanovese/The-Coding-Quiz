@@ -72,7 +72,7 @@ console.log(answer)
         r.setAttribute("style", "display:block");
         r.innerHTML="Correct!"
         r.style.color="darkolivegreen";
-        timeLeft.style.color="darkolivegreen";
+        timeLeft.style.color="darkgreen";
         scorePoints();
         } else {
         r.setAttribute("style", "display:block");
@@ -110,11 +110,14 @@ function storeInput() {
 function renderInput() {
     var lastInitialsInput = JSON.parse(localStorage.getItem('initialsInputValue'));
     var lastScoreInput = JSON.parse(localStorage.getItem('scoreInputValue'));
-
+    console.log(lastInitialsInput);
     const initialsList= document.querySelector(".initials-list");
     const highScoreList= document.querySelector(".high-scores-list");
     initialsList.textContent= lastInitialsInput;
     highScoreList.textContent=lastScoreInput || localStorage.getItem('scoreValue');
+
+    // redirect to high scores page //
+    window.location.href="highscores.html";
 }
 
 highScoreHeader.addEventListener("click", showHighScores);
