@@ -18,7 +18,6 @@ const restart = document.getElementById("restart-button");
 // highScorePts.innerHTML=localStorage.getItem("highscoreValue");
 // currentScore.innerHTML=localStorage.getItem("scoreValue");
 
-
 beginButton.addEventListener("click", beginGame);
 
 function beginGame() {
@@ -67,6 +66,7 @@ for (let i=0; i < answers.length; i ++) {
        answer= answers[i].correct;
     }
 }
+
 console.log(answer)
     if(answer === true) {
         r.setAttribute("style", "display:block");
@@ -88,41 +88,38 @@ console.log(answer)
 function scorePoints() {
     score += 100;
     currentScore.textContent= "SCORE POINTS: " + score;
-    localStorage.setItem=('scoreValue', score);
-    // if (score > 0)
-    // highScore.textContent="HIGH SCORE: " + score;
-    // if (score < highScore) {
-    //     highScore=score;
-    //     highScorePts.textContent= "HIGH SCORE: " + highScore;
-    //     localStorage.setItem('highscoreValue', highScorePts);
-    // }
+    localStorage.setItem('scoreValue', score);
+
+    if (score < highScore) {
+        highScore=score;
+        highScorePts.textContent= "HIGH SCORE: " + 100;
+        localStorage.setItem('highscoreValue', highScore);
+    }
 }
 
 saveButton.addEventListener("click", storeInput);
 
 function storeInput() {
-
     const initialsInput= document.getElementById("initials-input");
     const scoreInput =document.getElementById("score-input");
-    
-    localStorage.setItem('initialsInputValue', JSON.stringify(initialsInput));
-    localStorage.setItem('scoreInputValue', JSON.stringify(scoreInput));
+    localStorage.setItem('initialsInputValue', JSON.stringify(initialsInput.value));
+    localStorage.setItem('scoreInputValue', JSON.stringify(scoreInput.value));
     renderInput();
 }
 
 function renderInput() {
     var lastInitialsInput = JSON.parse(localStorage.getItem('initialsInputValue'));
     var lastScoreInput = JSON.parse(localStorage.getItem('scoreInputValue'));
+
     const initialsList= document.querySelector(".initials-list");
     const highScoreList= document.querySelector(".high-scores-list");
-
     initialsList.textContent= lastInitialsInput;
-    highScoreList.textContent=lastScoreInput;
+    highScoreList.textContent=lastScoreInput || localStorage.getItem('scoreValue');
 }
 
 highScoreHeader.addEventListener("click", showHighScores);
 
-function showHighScores(){
+function showHighScores() {
     quizContainer.setAttribute("style", "display:none");
     endDisplay.setAttribute("style", "display:none");
     highScoresContainer.setAttribute("style", "display:block");
@@ -138,7 +135,6 @@ function showQuizContainer() {
 // Our function for time remaining //
 function timeLeftClock() {
     //Set interval
-
     var interval= setInterval(function () {
         clock --;
         timeLeft.textContent = "TIME REMAINING: " + clock;
