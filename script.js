@@ -99,7 +99,8 @@ function scorePoints() {
 
 saveButton.addEventListener("click", storeInput);
 
-function storeInput() {
+function storeInput(event) {
+    event.preventDefault();
     const initialsInput= document.getElementById("initials-input");
     const scoreInput =document.getElementById("score-input");
     localStorage.setItem('initialsInputValue', JSON.stringify(initialsInput.value));
@@ -115,9 +116,9 @@ function renderInput() {
     const highScoreList= document.querySelector(".high-scores-list");
     initialsList.textContent= lastInitialsInput;
     highScoreList.textContent=lastScoreInput || localStorage.getItem('scoreValue');
-
-    // redirect to high scores page //
-    window.location.href="highscores.html";
+    // showHighScores();
+    endDisplay.setAttribute("style", "display:none");
+    highScoresContainer.setAttribute("style", "display:block");
 }
 
 highScoreHeader.addEventListener("click", showHighScores);

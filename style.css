@@ -54,7 +54,7 @@
 #quiz-container {
     padding: 15px;
     padding-bottom: 30px;
-    /* display: flex; */
+    display: flex;
     text-align: center;
     align-items: center;
     flex-direction: column;
