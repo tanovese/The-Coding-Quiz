@@ -170,7 +170,7 @@ clearButton.addEventListener("click", clearStorage);
 function clearStorage() {
     localStorage.clear();
     const userList= document.querySelector(".user-inputs");
-    userList.setAttribute("style", "font-size: 30px");
+    userList.setAttribute("style", "font-size: 40px");
     userList.textContent= "😳";
 }
 

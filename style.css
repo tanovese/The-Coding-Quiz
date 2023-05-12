@@ -17,8 +17,7 @@
     margin-right: 10%;
     border: 6px solid whitesmoke;
     border-radius: 15px;
-    background-color: mediumseagreen;
-    cursor: pointer;
+    background-color: mediumaquamarine;
 }
 
 /* #high-scores-header {
@@ -45,13 +44,13 @@
     border-radius: 15px;
     background-color: mediumpurple;
 }
-
+/* 
 #score-points-container {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-evenly;
-}
+} */
 
 /* #score {
     color:darkolivegreen;
@@ -66,7 +65,7 @@
     padding: 5px;
     margin: 3px;
     margin-left: 23%;
-    font-size: 30px;
+    font-size: 40px;
 }
 
 #quiz-container {
@@ -122,6 +121,7 @@
 
 #begin-button:hover {
     font-style: italic;
+    background-color: whitesmoke;
 }
 
 #options-container {
@@ -312,19 +312,6 @@
     margin-bottom: 45px;
 }
 
-/* .initials-list {
-    font-size: 25px;
-    color: mediumvioletred;
-    background-color: whitesmoke;
-    border-radius: 15px;
-    padding: 15px;
-    font-style: italic;
-    margin: 15px;
-    border: 6px solid goldenrod;
-    font-weight: bold;
-    margin-bottom: 45px;
-} */
-
 #restart-button-container {
     display: flex;
     text-align: center;
@@ -384,4 +371,34 @@
     background-color: whitesmoke;
     color: darkorange;
     font-style: italic;
+}
+
+@media screen and (max-width: 630px) {
+
+    #header-container {
+        display: flex;
+        flex-wrap: wrap;
+        /* flex-direction: column; */
+        justify-content: center;
+        margin-bottom: 2%;
+    }
+
+    #score {
+        color: whitesmoke;
+        margin: 6px;
+        padding: 20px;
+        border: 6px solid whitesmoke;
+        border-radius: 15px;
+        background-color: mediumaquamarine;
+    }
+
+    #time {
+        color: whitesmoke;
+        margin: 6px;
+        padding: 20px;
+        border: 6px solid whitesmoke;
+        border-radius: 15px;
+        background-color: mediumpurple;
+    }
+    
 }
