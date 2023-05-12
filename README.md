@@ -2,7 +2,7 @@
 
 ## Description
 
-The Coding Quiz Challenge web application is for individuals up for the challenge of testing their code knowledge. The application is also for the purpose of collecting code related information.
+The Coding Quiz Challenge is for those up for challenging themselves and testing their code knowledge. The application is also for the purpose of collecting code related information.
 
 ## Installation
 
@@ -10,7 +10,7 @@ N/A
 
 ## Usage
 
-The user can find the challenge instructions on the begin page and select beginwhen they are ready.
+The user can find the challenge instructions on the begin page and select begin when they are ready.
 
 After completing the challenge, the user can enter their final score, initials, and view the highscore page. The user gets the option to restart the game at the end after saving their information.
 
@@ -18,9 +18,9 @@ Right click and choose inspect to view the code for the project.
 
 ## Screenshot and Link to Application
 
-![](./images/Screenshot%202023-05-12%20012843.png)
+![](./images/Screenshot%202023-05-12%20134608.png)
 
-Link: 
+Link: https://tanovese.github.io/The-Coding-Quiz/
 
 ## Credits
 
