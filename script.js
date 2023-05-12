@@ -118,23 +118,54 @@ function storeInput(event) {
 
     const initialsInput= document.getElementById("initials-input");
     const scoreInput =document.getElementById("score-input");
-    localStorage.setItem('initialsInputValue', JSON.stringify(initialsInput.value));
-    localStorage.setItem('scoreInputValue', JSON.stringify(scoreInput.value));
+    // localStorage.setItem('initialsInputValue', JSON.stringify(initialsInput.value));
+    // localStorage.setItem('scoreInputValue', JSON.stringify(scoreInput.value));
+
+    let newInput=JSON.parse(window.localStorage.getItem('newInput')) || [];
+    let Input= {
+        enteredScore: scoreInput.value,
+        enteredInitials: initialsInput.value,
+    };
+
+    newInput.push(Input);
+    window.localStorage.setItem('newInput', JSON.stringify(newInput));
+
     renderInput();
 }
 
 //render input function puts user input into the list items
 function renderInput() {
-    var lastInitialsInput = JSON.parse(localStorage.getItem('initialsInputValue'));
-    var lastScoreInput = JSON.parse(localStorage.getItem('scoreInputValue'));
-    console.log(lastInitialsInput);
-    const initialsList= document.querySelector(".initials-list");
-    const highScoreList= document.querySelector(".high-scores-list");
-    initialsList.textContent= lastInitialsInput;
-    highScoreList.textContent=lastScoreInput || localStorage.getItem('scoreValue');
+    // var lastInitialsInput = JSON.parse(localStorage.getItem('initialsInputValue'));
+    var storedInputs = JSON.parse(localStorage.getItem('newInput'));
+    // var lastScoreInput = JSON.parse(localStorage.getItem('scoreInputValue'));
+    console.log(storedInputs);
+    const userList= document.querySelector(".user-inputs");
+    // userList.textContent= localStorage.getItem('newInput');
+    for (let index = 0; index < storedInputs.length; index++) {
+        const storedInputIndex = storedInputs[index];
+        var div=document.createElement("div");
+        div.style.backgroundColor="whitesmoke";
+        div.textContent = storedInputIndex.enteredScore + " , " + storedInputIndex.enteredInitials;
+
+        userList.append(div);
+    }
+    
+    // highScoreList.textContent=lastScoreInput || localStorage.getItem('scoreValue');
     // showHighScores();
     endDisplay.setAttribute("style", "display:none");
     highScoresContainer.setAttribute("style", "display:block");
+}
+
+
+//now we need to create a variable for the clear button so that it can be used
+//for an event listener
+var clearButton = document.getElementById("clear-button");
+
+clearButton.addEventListener("click", clearStorage);
+
+//now we have the clearStorage function which will clear the user inputs
+function clearStorage() {
+    localStorage.clear();
 }
 
 //upon clicking the highscores tab, the showHighScores function runs

@@ -7,7 +7,7 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-evenly;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
 }
 
 #high-scores-header {
@@ -46,7 +46,7 @@
     color:darkolivegreen;
     padding: 5px;
     margin: 3px;
-    margin-left: 15%;
+    margin-left: 18%;
     font-style: italic;
     font-weight: bold;
 }
@@ -278,8 +278,7 @@
     justify-content: center;
 }
 
-.high-scores-list {
-    display: flex;
+.user-inputs {
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -295,7 +294,7 @@
     margin-bottom: 45px;
 }
 
-.initials-list {
+/* .initials-list {
     font-size: 25px;
     color: mediumvioletred;
     background-color: whitesmoke;
@@ -306,7 +305,7 @@
     border: 6px solid goldenrod;
     font-weight: bold;
     margin-bottom: 45px;
-}
+} */
 
 #restart-button-container {
     display: flex;

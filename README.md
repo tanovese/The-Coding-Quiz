@@ -18,13 +18,13 @@ Right click and choose inspect to view the code for the project.
 
 ## Screenshot and Link to Application
 
-![](./images/Screenshot%202023-05-11%20141551.png)
+![](./images/Screenshot%202023-05-11%20151719.png)
 
 Link: 
 
 ## Credits
 
-Some of the code inspiration for the project was derived from a video tutorial titled, "Build a Quiz App with JavaScript" on Youtube from the channel Web Dev Simplified.
+Some of the inspiration for this project's code was derived from a video tutorial titled, "Build a Quiz App with JavaScript" on Youtube from the channel Web Dev Simplified.
 
 Specifically, this was used for the functions which reveal the quiz questions, randomize them, and show the next question. This video also aided in the arrangement of the array structure, the selectChoice function and resetState function.
 
