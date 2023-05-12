@@ -17,6 +17,7 @@ const highScoreHeader = document.getElementById("high-scores-header");
 const restart = document.getElementById("restart-button");
 // highScorePts.innerHTML=localStorage.getItem("highscoreValue");
 // currentScore.innerHTML=localStorage.getItem("scoreValue");
+const emojiFace= document.getElementById("emoji");
 
 
 //begin button
@@ -79,9 +80,10 @@ for (let i=0; i < answers.length; i ++) {
 console.log(answer)
     if(answer === true) {
         r.setAttribute("style", "display:block");
-        r.innerHTML="Correct!"
+        r.innerHTML="Correct!";
         r.style.color="darkgreen";
         timeLeft.style.color="darkgreen";
+        emojiFace.textContent="😄";
         scorePoints();
         } else {
         r.setAttribute("style", "display:block");
@@ -89,6 +91,7 @@ console.log(answer)
         r.style.color="brown";
         clock -= 10
         timeLeft.style.color="brown";
+        emojiFace.textContent="😑";
         }
         currentQuestionIndex++
         setNextQuestion();
@@ -147,6 +150,8 @@ function renderInput() {
         div.style.backgroundColor="whitesmoke";
         div.textContent = storedInputIndex.enteredScore + " , " + storedInputIndex.enteredInitials;
 
+        // storeInputIndex.enteredScore.sort(function(a,b) {return b-a});
+
         userList.append(div);
     }
     
@@ -166,6 +171,9 @@ clearButton.addEventListener("click", clearStorage);
 //now we have the clearStorage function which will clear the user inputs
 function clearStorage() {
     localStorage.clear();
+    const userList= document.querySelector(".user-inputs");
+    userList.setAttribute("style", "font-size: 30px");
+    userList.textContent= "😳";
 }
 
 //upon clicking the highscores tab, the showHighScores function runs
@@ -185,6 +193,7 @@ restart.addEventListener("click", showQuizContainer);
 //highScoresContainer is set to display none and quizContainer set to display
 //so that we can choose to begin the challenge again
 function showQuizContainer() {
+    location.reload();
     highScoresContainer.setAttribute("style", "display:none");
     quizContainer.setAttribute("style", "display:block");
 }
