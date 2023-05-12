@@ -150,8 +150,6 @@ function renderInput() {
         div.style.backgroundColor="whitesmoke";
         div.textContent = storedInputIndex.enteredScore + " , " + storedInputIndex.enteredInitials;
 
-        // storeInputIndex.enteredScore.sort(function(a,b) {return b-a});
-
         userList.append(div);
     }
     
@@ -177,15 +175,15 @@ function clearStorage() {
 }
 
 //upon clicking the highscores tab, the showHighScores function runs
-highScoreHeader.addEventListener("click", showHighScores);
+// highScoreHeader.addEventListener("click", showHighScores);
 
 //showHighScores sets quiz container attribute to none, endDisplay to none and
 //then shows the highScoresContainer by setting display to block
-function showHighScores() {
-    quizContainer.setAttribute("style", "display:none");
-    endDisplay.setAttribute("style", "display:none");
-    highScoresContainer.setAttribute("style", "display:block");
-}
+// function showHighScores() {
+//     quizContainer.setAttribute("style", "display:none");
+//     endDisplay.setAttribute("style", "display:none");
+//     highScoresContainer.setAttribute("style", "display:block");
+// }
 
 //upon selecting restart on the high scores page we are taken back to the quiz container
 restart.addEventListener("click", showQuizContainer);
@@ -193,7 +191,7 @@ restart.addEventListener("click", showQuizContainer);
 //highScoresContainer is set to display none and quizContainer set to display
 //so that we can choose to begin the challenge again
 function showQuizContainer() {
-    location.reload();
+    window.location.href = window.location.href;
     highScoresContainer.setAttribute("style", "display:none");
     quizContainer.setAttribute("style", "display:block");
 }

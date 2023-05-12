@@ -6,11 +6,11 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: end;
     margin-bottom: 2%;
 }
 
-#high-scores-header {
+/* #high-scores-header {
     color: whitesmoke;
     margin: 6px;
     padding: 20px;
@@ -23,7 +23,7 @@
 
 #high-scores-header:hover {
     font-style: italic;
-}
+} */
 
 #time {
     color: whitesmoke;
